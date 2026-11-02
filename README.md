@@ -1,4 +1,4 @@
-# latency_trace_based_analysis_0f82242c
+# tail_latency_jitter_trace_analysis
 
 （具身智能场景）如何避免把尾延迟抖动与首 token 时间的噪声当成信号？用延迟与分位统计给出误判模式的判别特征。
 
@@ -15,9 +15,9 @@
 仅依赖 Python 标准库。
 
 ```bash
-python latency_trace_based_analysis_0f82242c.py --help
-python latency_trace_based_analysis_0f82242c.py --input sample.txt
-python latency_trace_based_analysis_0f82242c.py --input sample.txt --json
+python tail_latency_jitter_trace_analysis.py --help
+python tail_latency_jitter_trace_analysis.py --input sample.txt
+python tail_latency_jitter_trace_analysis.py --input sample.txt --json
 ```
 
 输入文件按行解析。协议「轨迹分析」使用分隔符 `->` 区分标签与载荷。
@@ -50,7 +50,7 @@ p95 超过基线 1.5 倍即判定为退化。
 ## 复现步骤
 
 1. 按上面的分隔符准备输入文件，每行一条样本；
-2. 运行 `python latency_trace_based_analysis_0f82242c.py --input sample.txt --json`；
+2. 运行 `python tail_latency_jitter_trace_analysis.py --input sample.txt --json`；
 3. 记录运行环境、输入文件与完整输出；
 4. **未运行的指标不要引用**：本仓库只提供测量方法与判定规则，
    不预填任何实测数字。填入实测值前请确认对应命令与输入一致。
